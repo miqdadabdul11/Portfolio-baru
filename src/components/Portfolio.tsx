@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const projects = [
   {
@@ -137,12 +138,17 @@ export default function Portfolio() {
               transition={{ duration: 0.3 }}
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
-              <div className="bg-slate-800/40 border border-slate-700 p-4 rounded-2xl">
-                <div className="aspect-video bg-slate-700 rounded-xl mb-4 flex items-center justify-center">
-                  <span className="text-slate-400">Certificate Image</span>
+              <div className="bg-slate-800/40 border border-slate-700 p-4 rounded-2xl group hover:border-blue-500/50 transition-colors">
+                <div className="relative aspect-[4/3] bg-slate-700 rounded-xl mb-4 overflow-hidden">
+                  <Image
+                    src="/cert-revou.png"
+                    alt="RevoU Intro to Software Engineering Certificate"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <h3 className="font-bold mb-2">Example Certificate</h3>
-                <p className="text-slate-400 text-sm">Issued Date: 2025</p>
+                <h3 className="font-bold mb-2">Intro to Software Engineering (RevoU)</h3>
+                <p className="text-slate-400 text-sm">Issued: 13 February 2026</p>
               </div>
             </motion.div>
           )}
