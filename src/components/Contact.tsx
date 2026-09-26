@@ -28,9 +28,9 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-2xl font-bold mb-6">Let's Talk</h3>
+          <h3 className="text-2xl font-bold mb-6">Yuk, Ngobrol! 👋</h3>
           <p className="text-slate-300 mb-8 leading-relaxed">
-            I am currently open for opportunities. Whether you have a question, a project idea, or just want to say hi, I'll try my best to get back to you!
+            Lagi open buat kolaborasi, ngobrol soal project, atau sekadar say hi aja juga gapapa! Bakal gua bales kok, gak akan ghosting 😄
           </p>
 
           <div className="space-y-4 mb-8">
