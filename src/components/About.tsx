@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { FaGraduationCap, FaBriefcase, FaDownload, FaCode } from "react-icons/fa";
 
+import Image from "next/image";
+
 const organizations = [
   "Sekretaris, Divisi Humas Publikasi & Informasi (2024-2025)",
   "Sekretaris Hubungan Eksternal (2024-2025)",
@@ -37,11 +39,13 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center md:items-start"
         >
-          <div className="relative w-64 h-64 rounded-2xl overflow-hidden mb-8 border-4 border-slate-800 shadow-2xl shadow-blue-900/20 group">
-            {/* Placeholder for Profile Picture, user can add image later */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-indigo-900 flex items-center justify-center text-4xl font-bold group-hover:scale-105 transition-transform duration-500">
-              MM
-            </div>
+          <div className="relative w-64 h-64 rounded-2xl overflow-hidden mb-8 border-4 border-slate-800 shadow-2xl shadow-blue-900/20 group bg-slate-800/50">
+            <Image 
+              src="/profile.png" 
+              alt="Muhammad Miqdad Abdul Aziz" 
+              fill 
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+            />
           </div>
           <h3 className="text-2xl font-bold mb-4">Hi, I'm Muhammad Miqdad Abdul Aziz</h3>
           <p className="text-slate-300 mb-8 text-center md:text-left leading-relaxed">
