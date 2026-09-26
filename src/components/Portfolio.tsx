@@ -42,6 +42,12 @@ const techStack = [
   "MQTT",
 ];
 
+const trainings = [
+  { title: "Coding Camp RevoU", place: "Online (YouTube & Zoom)", date: "Februari 2026" },
+  { title: "Web Development Fundamentals Course", place: "Online (Google Meet)", date: "Februari 2026" },
+  { title: "Digital Marketing Talk Show", place: "Masjid Ar-Rahmah", date: "Maret 2026" },
+];
+
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState("projects");
   const [selectedCert, setSelectedCert] = useState<{src: string; title: string} | null>(null);
@@ -72,13 +78,13 @@ export default function Portfolio() {
             <p className="text-slate-400 text-sm">Certificate</p>
           </div>
           <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700/50">
-            <h4 className="text-3xl font-bold text-blue-500 mb-1">6</h4>
+            <h4 className="text-3xl font-bold text-blue-500 mb-1">{trainings.length}</h4>
             <p className="text-slate-400 text-sm">Trainings</p>
           </div>
         </div>
 
         <div className="flex justify-center gap-2 md:gap-4 mb-12 flex-wrap">
-          {["projects", "certificates", "tech stack"].map((tab) => (
+          {["projects", "certificates", "tech stack", "trainings"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -176,6 +182,32 @@ export default function Portfolio() {
                   className="bg-slate-800/40 border border-slate-700 p-4 rounded-xl flex items-center justify-center text-center hover:bg-slate-700 transition-colors hover:border-blue-500/50"
                 >
                   <span className="font-medium text-slate-200">{tech}</span>
+                </div>
+              ))}
+            </motion.div>
+          )}
+
+          {activeTab === "trainings" && (
+            <motion.div
+              key="trainings"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-4"
+            >
+              {trainings.map((t, index) => (
+                <div
+                  key={index}
+                  className="bg-slate-800/40 border border-slate-700 p-5 rounded-2xl flex items-center gap-5 hover:border-blue-500/50 transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold flex-shrink-0">
+                    {index + 1}
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white">{t.title}</h4>
+                    <p className="text-slate-400 text-sm">{t.place} • {t.date}</p>
+                  </div>
                 </div>
               ))}
             </motion.div>

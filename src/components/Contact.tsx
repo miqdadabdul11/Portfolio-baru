@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaPaperPlane } from "react-icons/fa";
+import { FaLinkedin, FaEnvelope, FaPaperPlane, FaWhatsapp } from "react-icons/fa";
 
 export default function Contact() {
   return (
@@ -34,11 +34,17 @@ export default function Contact() {
           </p>
 
           <div className="space-y-4 mb-8">
-            <a href="mailto:contact@example.com" className="flex items-center gap-4 text-slate-300 hover:text-blue-400 transition-colors">
+            <a href="mailto:Miqdadadbul1103@gmail.com" className="flex items-center gap-4 text-slate-300 hover:text-blue-400 transition-colors">
               <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center border border-slate-700">
                 <FaEnvelope className="text-xl" />
               </div>
-              <span>Email Me</span>
+              <span>Miqdadadbul1103@gmail.com</span>
+            </a>
+            <a href="https://wa.me/6285711591597" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-slate-300 hover:text-green-400 transition-colors">
+              <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center border border-slate-700">
+                <FaWhatsapp className="text-xl" />
+              </div>
+              <span>+62 857-1159-1597</span>
             </a>
             <a href="https://linkedin.com/in/muhammadmiqdad-05970a3b1" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-slate-300 hover:text-blue-400 transition-colors">
               <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center border border-slate-700">
