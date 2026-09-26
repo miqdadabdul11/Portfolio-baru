@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FiX, FiZoomIn } from "react-icons/fi";
 import Image from "next/image";
 
 const projects = [
@@ -43,6 +44,7 @@ const techStack = [
 
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState("projects");
+  const [selectedCert, setSelectedCert] = useState<{src: string; title: string} | null>(null);
 
   return (
     <section id="portfolio" className="py-20 px-4 max-w-6xl mx-auto">
@@ -138,7 +140,10 @@ export default function Portfolio() {
               transition={{ duration: 0.3 }}
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
-              <div className="bg-slate-800/40 border border-slate-700 p-4 rounded-2xl group hover:border-blue-500/50 transition-colors">
+              <div
+                className="bg-slate-800/40 border border-slate-700 p-4 rounded-2xl group hover:border-blue-500/50 transition-colors cursor-pointer"
+                onClick={() => setSelectedCert({ src: "/cert-revou.png", title: "Intro to Software Engineering (RevoU)" })}
+              >
                 <div className="relative aspect-[4/3] bg-slate-700 rounded-xl mb-4 overflow-hidden">
                   <Image
                     src="/cert-revou.png"
@@ -146,6 +151,9 @@ export default function Portfolio() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <FiZoomIn className="text-white text-3xl" />
+                  </div>
                 </div>
                 <h3 className="font-bold mb-2">Intro to Software Engineering (RevoU)</h3>
                 <p className="text-slate-400 text-sm">Issued: 13 February 2026</p>
@@ -174,6 +182,45 @@ export default function Portfolio() {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedCert && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+            onClick={() => setSelectedCert(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="relative max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedCert(null)}
+                className="absolute top-4 right-4 z-10 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-colors"
+              >
+                <FiX className="text-xl" />
+              </button>
+              <Image
+                src={selectedCert.src}
+                alt={selectedCert.title}
+                width={1200}
+                height={900}
+                className="w-full h-auto object-contain"
+              />
+              <div className="bg-slate-900 px-6 py-4">
+                <p className="font-semibold text-white">{selectedCert.title}</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
