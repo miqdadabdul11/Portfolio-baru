@@ -44,7 +44,7 @@ export default function About() {
               src="/profile.png" 
               alt="Muhammad Miqdad Abdul Aziz" 
               fill 
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
             />
           </div>
           <h3 className="text-2xl font-bold mb-4">Hi, I'm Muhammad Miqdad Abdul Aziz</h3>

@@ -17,7 +17,7 @@ export default function Hero() {
             Electrical Engineering Student
           </h2>
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-200 to-white">
-            Powering Ideas Into Reality
+            Building Smart Systems,<br className="hidden sm:block" /> Bridging IoT & Web
           </h1>
           <p className="text-slate-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
             Mahasiswa Teknik Elektro di Universitas Pendidikan Indonesia dengan minat pada telekomunikasi, teknologi digital, dan pengembangan sistem berbasis web.
